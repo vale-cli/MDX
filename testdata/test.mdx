@@ -45,3 +45,14 @@ Two 🍰 is: {Math.PI * 2}
 
   return <span style={{color: 'goldenrod'}}>Not me.</span>
 })()}
+
+## Anchored heading {#anchored-heading}
+
+Mintlify and Docusaurus attach an explicit id to a heading this way. MDX hands
+whatever sits in braces to Acorn, and `#anchored-heading` is not an expression.
+
+Handlebars sections are not the same thing, and must be left alone -- the tail
+of `{{#client}}` looks like an anchor but splicing a backtick into it breaks
+the surrounding expression:
+
+var clients = "Clients:<ul>{{#client}}<li>{{fn}}</li>{{/client}}</ul>";
